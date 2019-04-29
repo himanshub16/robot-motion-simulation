@@ -9,6 +9,9 @@ This directory contains the code written for ROS based assignments for Artificia
     - [2. Move a robot in MobileSim to a fixed goal](#2-move-a-robot-in-mobilesim-to-a-fixed-goal)
     - [3. Move a MobileSim robot in a square loop](#3-move-a-mobilesim-robot-in-a-square-loop)
     - [4. Make a robot follow another which is controlled from keyboard](#4-make-a-robot-follow-another-which-is-controlled-from-keyboard)
+    - [5. Make a chain of bots following each other with leader controlled from keyboard](#5-make-a-chain-of-bots-following-each-other-with-leader-controlled-from-keyboard)
+    - [6. Move robots from corner of a square to opposite with collision avoidance](#6-move-robots-from-corner-of-a-square-to-opposite-with-collision-avoidance)
+    - [7. Move bots in a grid as shown with no collision](#7-move-bots-in-a-grid-as-shown-with-no-collision)
 
 <!-- markdown-toc end -->
 
@@ -135,6 +138,7 @@ roslaunch launchfiles/sixth.launch
 ```
 
 ## 7. Move bots in a grid as shown with no collision
+To start two robots from the ends of an "S", with other two following one each. See gif to get a better idea.
 [**code**](ros/als/scripts/7-follow-collision-avoid.py)
 
 ![gif_here](ros/als/images/seventh.gif)
