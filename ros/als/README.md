@@ -17,10 +17,10 @@ This directory contains the code written for ROS based assignments for Artificia
 
 
 ## 1. Setup pub-sub connections as per a given graph
-[**code**](ros/als/scripts/1-start-talking.py)
+[**code**](scripts/1-start-talking.py)
 
 Given a graph as shown in image below, setup talker and subscriber nodes such that they transfer messages so that the connection graph appears as the image.
-![pub-sub-graph](ros/als/images/1-pub-sub-graph.png)
+![pub-sub-graph](images/1-pub-sub-graph.png)
 
 The solution reads the config graph from a json file and for each node prepares a list of nodes the current one will `talk to` and `listen to`.
 
@@ -36,7 +36,7 @@ rosrun rqt_graph rqt_graph
 ```
 
 ## 2. Move a robot in MobileSim to a fixed goal
-[**code**](ros/als/scripts/2-move-to-goal.py)
+[**code**](scripts/2-move-to-goal.py)
 
 Given a goal, say `(0, 5)`, a robot in MobileSim needs to move from one point to another.
 
@@ -44,7 +44,7 @@ The solution models the velocity (linear and angular) of the robot as a `p-contr
 
 A goal is said to be reached if the distance from the goal is less than a lower bound (here, 1.0).
 
-![gif_here](ros/als/images/second.gif)
+![gif_here](images/second.gif)
 
 ```bash
 # Run these commands in different shells/windows
@@ -63,12 +63,12 @@ python scripts/2-move-to-goal.py
 
 
 ## 3. Move a MobileSim robot in a square loop
-[**code**](ros/als/scripts/3-move-square-loop.py)
+[**code**](scripts/3-move-square-loop.py)
 
 The vertices of the square are at `(0, 0), (0, 5), (5, 5), (5, 0)`. The robot runs in a loop in the square.
 The solution to this is similar to the previous problem, with the fact that the goal variable updates after one goal is reached.
 
-![gif_here](ros/als/images/third.gif)
+![gif_here](images/third.gif)
 ```bash
 # Run these commands in different shells/windows
 # Start roscore service
@@ -85,13 +85,13 @@ python scripts/3-move-square-loop.py
 ```
 
 ## 4. Make a robot follow another which is controlled from keyboard
-[**code**](ros/als/scripts/4-follow-keyboard-bot.py)
+[**code**](scripts/4-follow-keyboard-bot.py)
     
 There are two robots - `r1` and `r2`.
 `r1` is controlled from keyboard via `teleop` package, while `r2` is controlled from program.
 `r2` follows `r1`.
 
-![gif_here](ros/als/images/fourth.gif)
+![gif_here](images/fourth.gif)
 
 ```bash
 MobileSim -r pioneer-lx -r pioneer-lx --nomap
@@ -104,11 +104,11 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard /cmd_vel:=/r1/cmd_vel
 ```
 
 ## 5. Make a chain of bots following each other with leader controlled from keyboard
-[**code**](ros/als/scripts/5-robot-chain.py)
+[**code**](scripts/5-robot-chain.py)
 
 There are five robots, with the first one being controlled from keyboard, the second one following the first, the third follows the second, and so on.
 
-![gif_here](ros/als/images/fifth.gif)
+![gif_here](images/fifth.gif)
 ```bash
 MobileSim -r pioneer-lx -r pioneer-lx -r pioneer-lx -r pioneer-lx -r pioneer-lx --nomap
 
@@ -120,7 +120,7 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard /cmd_vel:=/r1/cmd_vel
 ```
 
 ## 6. Move robots from corner of a square to opposite with collision avoidance
-[**code**](ros/als/scripts/6-move-diagonal-collision-avoid.py)
+[**code**](scripts/6-move-diagonal-collision-avoid.py)
 Four robots placed on the corner of a square have to moved to the opposite side along the diagonal, making path adjustments for collision avoidance.
 The gif shows the desired path.
 
@@ -129,7 +129,7 @@ The gif shows the desired path.
 Initial position of robots on MobileSim is done by dragging them to approximately the position we want (mentioned in the launch file as well).
 The positions were transformed to world coordinate frame for calculating the net force due to socio-potential field.
 
-![gif_here](ros/als/images/sixth.gif)
+![gif_here](images/sixth.gif)
 ```bash
 MobileSim -r pioneer-lx -r pioneer-lx -r pioneer-lx -r pioneer-lx --nomap
 
@@ -139,9 +139,9 @@ roslaunch launchfiles/sixth.launch
 
 ## 7. Move bots in a grid as shown with no collision
 To start two robots from the ends of an "S", with other two following one each. See gif to get a better idea.
-[**code**](ros/als/scripts/7-follow-collision-avoid.py)
+[**code**](scripts/7-follow-collision-avoid.py)
 
-![gif_here](ros/als/images/seventh.gif)
+![gif_here](images/seventh.gif)
 ```bash
 MobileSim -r pioneer-lx -r pioneer-lx -r pioneer-lx -r pioneer-lx --nomap
 
