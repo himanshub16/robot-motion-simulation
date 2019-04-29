@@ -1,0 +1,19 @@
+<launch>
+
+  <node pkg="rosaria" name="r1" type="RosAria"> 
+    <param name="port" value="localhost:8101" />
+    <param name="odom_frame" value="r1_odom" />
+    <param name="base_link_frame" value="r1_base_link" />
+  </node>
+
+  <node pkg="rosaria" name="r2" type="RosAria"> 
+    <param name="port" value="localhost:8102" />
+    <param name="odom_frame" value="r2_odom" />
+    <param name="base_link_frame" value="r2_base_link" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="W_r1" args="0 0 0 0 0 0 world r1_odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="W_r2" args="0 -1 0 0 0 0 world r2_odom 100" />
+
+  <node pkg="als" name="move_robot" type="4-follow-keyboard-bot.py" /> 
+</launch>

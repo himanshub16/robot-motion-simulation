@@ -1,0 +1,23 @@
+[
+    {
+        "from": "A",
+        "to": "B",
+        "channel_name": "a"
+    },
+    {
+        "from": "B",
+        "to": "A",
+        "channel_name": "b"
+    },
+    {
+        "from": "C",
+        "to": "A",
+        "channel_name": "c"
+    },
+    {
+        "from": "B",
+        "to": "D",
+        "channel_name": "d"
+    }
+
+]

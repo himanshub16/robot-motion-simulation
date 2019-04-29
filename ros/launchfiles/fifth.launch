@@ -1,0 +1,38 @@
+<launch>
+
+  <node pkg="rosaria" name="r1" type="RosAria"> 
+    <param name="port" value="localhost:8101" />
+    <param name="odom_frame" value="r1_odom" />
+    <param name="base_link_frame" value="r1_base_link" />
+  </node>
+  <node pkg="rosaria" name="r2" type="RosAria"> 
+    <param name="port" value="localhost:8102" />
+    <param name="odom_frame" value="r2_odom" />
+    <param name="base_link_frame" value="r2_base_link" />
+  </node>
+  <node pkg="rosaria" name="r3" type="RosAria"> 
+    <param name="port" value="localhost:8103" />
+    <param name="odom_frame" value="r3_odom" />
+    <param name="base_link_frame" value="r3_base_link" />
+  </node>
+  <node pkg="rosaria" name="r4" type="RosAria"> 
+    <param name="port" value="localhost:8104" />
+    <param name="odom_frame" value="r4_odom" />
+    <param name="base_link_frame" value="r4_base_link" />
+  </node>
+  <node pkg="rosaria" name="r5" type="RosAria"> 
+    <param name="port" value="localhost:8105" />
+    <param name="odom_frame" value="r5_odom" />
+    <param name="base_link_frame" value="r5_base_link" />
+  </node>
+
+  <node pkg="tf" type="static_transform_publisher" name="W_r1" args="0 0 0 0 0 0 world r1_odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="W_r2" args="0 -1 0 0 0 0 world r2_odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="W_r3" args="0 -2 0 0 0 0 world r3_odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="W_r4" args="0 -3 0 0 0 0 world r4_odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="W_r5" args="0 -4 0 0 0 0 world r5_odom 100" />
+
+  <node pkg="als" name="move_chain" type="5-robot-chain.py"> 
+    <remap from="/RosAria/cmd_vel" to="/r1/cmd_vel" />
+  </node>
+</launch>

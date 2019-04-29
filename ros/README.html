@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>README.html</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+
+</head>
+
+<body>
+
+<h1>ALS assignments as ROS package</h1>
+
+<p>This directory contains the code written for ROS based assignments for Artificial Life Simulation Course.</p>
+
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [ALS assignments as ROS package](#als-assignments-as-ros-package)
+    - [1. Setup pub-sub connections as per a given graph](#1-setup-pub-sub-connections-as-per-a-given-graph)
+    - [2. Move a robot in MobileSim to a fixed goal](#2-move-a-robot-in-mobilesim-to-a-fixed-goal)
+
+<!-- markdown-toc end -->
+
+<h2>1. Setup pub-sub connections as per a given graph</h2>
+
+<p>Given a graph as shown in image below, setup talker and subscriber nodes such that they transfer messages so that the connection graph appears as the image.
+<img src="ros/als/scripts/1-pub-sub-graph.png" alt="pub-sub-graph" title="" /></p>
+
+<p>The solution reads the config graph from a json file and for each node prepares a list of nodes the current one will <code>talk to</code> and <code>listen to</code>.</p>
+
+<p>After this, it starts each node in a different process, using Python's <code>multiprocessing</code>.</p>
+
+<p>```bash
+cd scripts</p>
+
+<h1>Update the graph in connection-graph.json, if you want a different setup</h1>
+
+<p>python start-talking.py</p>
+
+<h1>To view the graph, run below cmd in another shell</h1>
+
+<p>rosrun rqt<em>graph rqt</em>graph
+```</p>
+
+<h2>2. Move a robot in MobileSim to a fixed goal</h2>
+
+<p>Given a goal, say <code>(0, 5)</code>, a robot in MobileSim needs to move from one point to another.
+```bash</p>
+
+<h1>Run these commands in different shells/windows</h1>
+
+<h1>Start roscore service</h1>
+
+<p>roscore</p>
+
+<h1>Start MobileSim</h1>
+
+<p>MobileSim -r pioneer-lx --nomap</p>
+
+<h1>Start RosAria</h1>
+
+<p>rosrun rosaria RosAria</p>
+
+<h1>Start the required script</h1>
+
+<p>python scripts/2-move-to-goal.py
+```</p>
+
+</body>
+</html>
